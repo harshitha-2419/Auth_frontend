@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# 🔐 LMS Portal — Authentication System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌐 Live UI Showcase
 
-Currently, two official plugins are available:
+👉 **https://harshitha-2419.github.io/Auth_frontend/**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> This landing page is purely a **UI/UX showcase** of the authentication system built for LMS Portal.
+> The backend runs locally, so no API calls will work here.
+>
+> From the landing page you can:
+> - Preview all **7 authentication pages** (Login, Register, OTP, Forgot Password, etc.)
+> - Try the **Dashboard as 3 different roles** — Student, Admin and Super Admin
+> - Each role shows different tabs and permissions as it would in the real app
+>
+> For the full working app, clone the repo and run the backend locally.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A full-stack authentication system built with **React + TypeScript + Tailwind CSS** (frontend) and **Node.js + Express + MongoDB** (backend).
 
-## Expanding the ESLint configuration
+## 🌐 Live UI Showcase
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+👉 **https://harshitha-2419.github.io/Auth_frontend/**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+> ⚠️ This is a static UI showcase. The backend runs locally, so API calls won't work here.
+> The Dashboard is a protected route in the real app — temporarily unprotected for preview only.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 All Pages
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+| Page | Link |
+|------|------|
+| 🏠 Landing | https://harshitha-2419.github.io/Auth_frontend/ |
+| 🔐 Login | https://harshitha-2419.github.io/Auth_frontend/#/login |
+| 📝 Register | https://harshitha-2419.github.io/Auth_frontend/#/register |
+| ✉️ Verify OTP | https://harshitha-2419.github.io/Auth_frontend/#/verify-otp |
+| 🔑 Login with OTP | https://harshitha-2419.github.io/Auth_frontend/#/login-otp |
+| 🔒 Forgot Password | https://harshitha-2419.github.io/Auth_frontend/#/forgot-password |
+| 🛡️ Reset Password | https://harshitha-2419.github.io/Auth_frontend/#/reset-password |
+| 📊 Dashboard | https://harshitha-2419.github.io/Auth_frontend/#/dashboard |
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
+
+**Frontend**
+- React 19 + TypeScript
+- Tailwind CSS v4
+- React Router v7
+- Axios
+
+**Backend** *(runs locally)*
+- Node.js + Express
+- MongoDB + Mongoose
+- JWT (Access + Refresh Tokens)
+- OTP via Email
+- Session Management
+- Login History
+
+---
+
+## ✨ Features
+
+- ✅ Register with email OTP verification
+- ✅ Login with password or OTP
+- ✅ JWT access + refresh token flow
+- ✅ Forgot & reset password
+- ✅ Session management & login history
+- ✅ Role-based access (Admin / Student)
+- ✅ Protected routes
+- ✅ Full student dashboard UI
+
+---
+
+Built by **Harshitha** · Full Stack Authentication Project

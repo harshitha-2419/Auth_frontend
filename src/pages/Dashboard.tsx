@@ -113,7 +113,34 @@ export default function Dashboard() {
         setSessions(sess.data.sessions || []);
         setHistory(hist.data.history || []);
       })
-      .catch(() => navigate('/login'))
+      .catch(() => {
+        // showcase mode: use mock user based on URL param
+        const params = new URLSearchParams(window.location.hash.split('?')[1] || '');
+        const demoRole = params.get('role') || 'user';
+        const roleMap: Record<string, { name: string; email: string; role: string }> = {
+          user:        { name: 'Demo Student',   email: 'student@lmsportal.com',   role: 'user' },
+          admin:       { name: 'Demo Admin',     email: 'admin@lmsportal.com',     role: 'admin' },
+          super_admin: { name: 'Demo SuperAdmin', email: 'superadmin@lmsportal.com', role: 'super_admin' },
+        };
+        const picked = roleMap[demoRole] ?? roleMap['user'];
+        setUser({ _id: 'demo', ...picked, phone: '9999999999', isVerified: true, createdAt: new Date().toISOString() });
+        setSessions([
+          { _id: 's1', deviceInfo: 'Chrome on Windows', ipAddress: '192.168.1.1', createdAt: new Date().toISOString() },
+          { _id: 's2', deviceInfo: 'Firefox on Mac', ipAddress: '10.0.0.5', createdAt: new Date().toISOString() },
+        ]);
+        setHistory([
+          { _id: 'h1', success: true,  ipAddress: '192.168.1.1', deviceInfo: 'Chrome on Windows', createdAt: new Date().toISOString() },
+          { _id: 'h2', success: false, ipAddress: '10.0.0.9',    deviceInfo: 'Unknown',            createdAt: new Date().toISOString() },
+          { _id: 'h3', success: true,  ipAddress: '192.168.1.1', deviceInfo: 'Chrome on Windows', createdAt: new Date().toISOString() },
+        ]);
+        if (demoRole === 'admin' || demoRole === 'super_admin') {
+          setAdminUsers([
+            { _id: 'u1', name: 'Alice Johnson', email: 'alice@lmsportal.com', role: 'user',  isVerified: true,  createdAt: new Date().toISOString() },
+            { _id: 'u2', name: 'Bob Smith',     email: 'bob@lmsportal.com',   role: 'user',  isVerified: false, createdAt: new Date().toISOString() },
+            { _id: 'u3', name: 'Carol White',   email: 'carol@lmsportal.com', role: 'admin', isVerified: true,  createdAt: new Date().toISOString() },
+          ]);
+        }
+      })
       .finally(() => setLoading(false));
   }, []);
 
